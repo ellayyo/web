@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin del Juego</title>
+    <style>
+        /* Estilos generales de la página */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffe6f2;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            margin-bottom: 20px;
+        }
+
+        nav {
+            background-color: #ff69b4;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 800px; /* Ancho igual al main */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center; /* Centrar el menú */
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccff; /* Color más suave al pasar el mouse */
+        }
+
+        main {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            margin-top: 20px;
+            max-width: 800px; /* Max ancho para la legibilidad */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2 {
+            color: #ff69b4; /* Color rosa para títulos */
+        }
+
+        p {
+            line-height: 1.6; /* Espaciado más cómodo entre líneas */
+            font-size: 1.1em; /* Tamaño de fuente ligeramente mayor */
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Estilos para imágenes decorativas */
+        .decorative {
+            width: 300px; /* Tamaño de las imágenes */
+            border-radius: 15px; /* Bordes redondeados */
+            margin: 10px;
+            transition: transform 0.3s; /* Transición suave */
+        }
+
+        .decorative:hover {
+            transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+        }
+        
+        /* Estilos específicos de la página de fin */
+        .main-content {
+            margin-top: 40px;
+        }
+
+        .heart {
+            width: 100px; /* Tamaño del corazón */
+            margin: 20px 0;
+        }
+
+        .restart-button {
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .restart-button:hover {
+            background-color: #ffccff; /* Color más suave al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡Felicidades!</h1>
+        <nav>
+            <ul>
+                <li><a href="fin.html">Inicio</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="sorpresa.html">Sorpresa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <h2>Te lo has pasao con lo mala que eres</h2>
+        <img src="media/11.jpeg" alt="Rosa" class="decorative"> <!-- Imagen de rosa -->
+        <img src="media/13.jpeg" alt="Corazón" class="decorative"> <!-- Imagen de corazón -->
+        <p>Yo tambien te quierooooooo</p>
+        <p>Si te arrepientes y no me quieres vuelve a jugar :')</p>
+        <button class="restart-button" onclick="location.href='index.html'">Volver a Jugar</button>
+    </main>
+
+</body>
+</html>

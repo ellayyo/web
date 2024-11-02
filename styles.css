@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9e3f2; /* Color de fondo rosado */
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+button {
+    padding: 20px 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff69b4; /* Color de botón rosado */
+    color: white;
+    transition: background-color 0.3s;
+    margin: 10px; /* Margen entre botones */
+}
+
+button:hover {
+    background-color: #ff1493; /* Color al pasar el mouse */
+}

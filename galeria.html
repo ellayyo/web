@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Amor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9e3f2; /* Color de fondo rosado */
+        }
+
+        header {
+            margin-bottom: 20px; /* Espacio entre el header y el contenido */
+        }
+
+        nav {
+            background-color: #ff69b4;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 800px; /* Ancho igual al main */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center; /* Centrar el menú */
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccff; /* Color más suave al pasar el mouse */
+        }
+
+        h1 {
+            color: #ff69b4; /* Color rosa para títulos */
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px; /* Ancho máximo del contenedor */
+            margin: 20px auto; /* Centra el contenedor en la página */
+            padding: 20px;
+            background-color: white; /* Color de fondo del contenedor */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px; /* Altura fija para las imágenes */
+            object-fit: cover; /* Mantiene la proporción de la imagen */
+            border-radius: 10px;
+            transition: transform 0.3s;
+            cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Efecto al pasar el mouse */
+        }
+
+        /* Estilos del modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s; /* Animación de aparición */
+        }
+
+        .modal img,
+        .modal video {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            animation: zoomIn 0.5s; /* Animación de zoom */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); }
+            to { transform: scale(1); }
+        }
+
+        .videos {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .videos video {
+            width: 300px; /* Ancho fijo para los videos */
+            height: auto; /* Mantiene la proporción del video */
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden; /* Asegura que los bordes sean redondeados */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra para un efecto más bonito */
+            transition: transform 0.3s; /* Transición para el efecto hover */
+            cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+        }
+
+        .videos video:hover {
+            transform: scale(1.05); /* Efecto al pasar el mouse */
+        }
+
+        footer {
+            text-align: center;
+            margin: 20px;
+            color: #ff69b4; /* Color de texto del footer */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Foticos</h1>
+        <nav>
+            <ul>
+                <li><a href="fin.html">Inicio</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="sorpresa.html">Sorpresa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="gallery">
+                <img src="media/1.jpeg" alt="Imagen 1" onclick="openModal(this)">
+                <img src="media/2.jpeg" alt="Imagen 2" onclick="openModal(this)">
+                <img src="media/3.jpeg" alt="Imagen 3" onclick="openModal(this)">
+                <img src="media/4.jpeg" alt="Imagen 4" onclick="openModal(this)">
+                <img src="media/5.jpeg" alt="Imagen 5" onclick="openModal(this)">
+                <img src="media/6.jpeg" alt="Imagen 6" onclick="openModal(this)">
+                <img src="media/7.jpeg" alt="Imagen 7" onclick="openModal(this)">
+                <img src="media/8.jpeg" alt="Imagen 8" onclick="openModal(this)">
+                <img src="media/9.jpeg" alt="Imagen 9" onclick="openModal(this)">
+                <img src="media/10.jpeg" alt="Imagen 10" onclick="openModal(this)">
+                <!-- Añade más imágenes según sea necesario -->
+            </div>
+
+            <div class="videos">
+                <h2>Nuestros Videos</h2>
+                <video controls onclick="openVideo(this)">
+                    <source src="media/video1.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <video controls onclick="openVideo(this)">
+                    <source src="media/video 2.mp4" type="video/mp4">
+                    Tu navegador no soporta la reproducción de videos.
+                </video>
+                <!-- Añade más videos según sea necesario -->
+            </div>
+        </div>
+    </main>
+    <!-- Modal para las imágenes -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <img id="modalImage" src="" alt="Imagen Ampliada">
+    </div>
+
+    <!-- Modal para los videos -->
+    <div id="videoModal" class="modal" onclick="closeModal()">
+        <video id="modalVideo" controls>
+            <source src="" type="video/mp4">
+            Tu navegador no soporta la reproducción de videos.
+        </video>
+    </div>
+
+    <footer>
+        <p>Que verguenza en verda</p>
+    </footer>
+
+    <script>
+        function openModal(img) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex"; // Muestra el modal
+            modalImg.src = img.src; // Asigna la imagen seleccionada
+        }
+
+        function openVideo(video) {
+            var modal = document.getElementById("videoModal");
+            var modalVideo = document.getElementById("modalVideo");
+            modal.style.display = "flex"; // Muestra el modal
+            modalVideo.src = video.querySelector('source').src; // Asigna el video seleccionado
+            modalVideo.play(); // Reproduce el video
+        }
+
+        function closeModal() {
+            var imageModal = document.getElementById("imageModal");
+            var videoModal = document.getElementById("videoModal");
+            imageModal.style.display = "none"; // Oculta el modal de imagen
+            videoModal.style.display = "none"; // Oculta el modal de video
+            var modalVideo = document.getElementById("modalVideo");
+            modalVideo.pause(); // Pausa el video cuando se cierra el modal
+            modalVideo.src = ""; // Limpia la fuente del video
+        }
+    </script>
+</body>
+</html>

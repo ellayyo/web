@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Color de fondo suave */
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con algo de transparencia */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #ff1493; /* Color de texto triste */
+        }
+
+        p {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .middle-finger {
+            font-size: 80px; /* Tamaño del emoji */
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff69b4; /* Color de botón rosado */
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1493; /* Color al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="middle-finger">🖕</h1> <!-- Emoji del dedo del medio -->
+        <p><strong>No me quieres... 😭</strong></p>
+        <p>Que te den</p>
+        <p>Vete con un negro</p>
+        <p>O vuelves a jugar o te vas de mi casa :)</p>
+        <button id="restartButton">Volver a intentar</button>
+    </div>
+    <script>
+        document.getElementById('restartButton').addEventListener('click', () => {
+            window.location.href = 'index.html'; // Redirige al juego principal
+        });
+    </script>
+</body>
+</html>

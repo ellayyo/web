@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorpresa</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9e3f2;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff69b4;
+            margin-top: 20px;
+        }
+
+        .container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .chest {
+            margin: 20px auto;
+            position: relative;
+            height: 150px; /* Altura del área de cofre */
+        }
+
+        .key {
+            width: 50px; /* Ajustar tamaño de la llave */
+            position: absolute;
+            top: 20px; /* Ajusta la posición inicial de la llave */
+            cursor: grab;
+            user-select: none;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #ff69b4;
+        }
+
+        nav {
+            background-color: #ff69b4;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffccff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>¡La Sorpresa!</h1>
+        <nav>
+            <ul>
+                <li><a href="fin.html">Inicio</a></li>
+                <li><a href="sobre_nosotros.html">Sobre Nosotros</a></li>
+                <li><a href="galeria.html">Galería</a></li>
+                <li><a href="sorpresa.html">Sorpresa</a></li>
+                <li><a href="sorpresa2.html">Sorpresa 2</a></li>
+            </ul>
+        </nav>
+    </header>
+    <br>
+    <div class="container">
+        <img src="media/llave.png" id="key" class="key" alt="Llave">
+        <div class="chest" id="chest">
+            <img src="media/cofre.png" alt="Cofre" style="width: 120px; max-height: 120px;">
+        </div>
+        <p id="message"></p>
+    </div>
+    <footer>
+        <p>Mete la llave en el cofre</p>
+    </footer>
+
+    <script>
+        const key = document.getElementById("key");
+        const chest = document.getElementById("chest");
+        const message = document.getElementById("message");
+        let isDragging = false;
+        let offsetX, offsetY;
+
+        key.addEventListener("mousedown", function(event) {
+            isDragging = true;
+            offsetX = event.clientX - key.getBoundingClientRect().left;
+            offsetY = event.clientY - key.getBoundingClientRect().top;
+
+            // Previene el comportamiento de selección de texto
+            event.preventDefault();
+        });
+
+        document.addEventListener("mousemove", function(event) {
+            if (isDragging) {
+                const newX = event.clientX - offsetX;
+                const newY = event.clientY - offsetY;
+
+                // Mueve la llave con el mouse
+                key.style.left = newX + "px";
+                key.style.top = newY + "px";
+            }
+        });
+
+        document.addEventListener("mouseup", function() {
+            if (isDragging) {
+                const chestRect = chest.getBoundingClientRect();
+                const keyRect = key.getBoundingClientRect();
+
+                // Verifica si la llave está sobre el cofre
+                if (
+                    keyRect.x + keyRect.width / 2 > chestRect.x &&
+                    keyRect.x + keyRect.width / 2 < chestRect.x + chestRect.width &&
+                    keyRect.y + keyRect.height / 2 > chestRect.y &&
+                    keyRect.y + keyRect.height / 2 < chestRect.y + chestRect.height
+                ) {
+                    downloadFile();
+                }
+            }
+            isDragging = false;
+        });
+
+        function downloadFile() {
+            const link = document.createElement('a');
+            link.href = 'media/Nuestra historia.pdf'; // Reemplaza con la ruta de tu archivo
+            link.target = '_blank';
+            link.download = 'Nuestra historia.pdf'; // Nombre del archivo a descargar
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            message.innerText = "¡Has metido la llave, ahi tienes tu sorpresa :)";
+        }
+    </script>
+</body>
+</html>
